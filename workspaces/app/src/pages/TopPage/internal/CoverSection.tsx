@@ -1,3 +1,4 @@
+import { Suspense } from 'react';
 import styled from 'styled-components';
 
 import { SvgIcon } from '../../../features/icons/components/SvgIcon';
@@ -29,7 +30,7 @@ const _SearchLink = styled(Link)`
   transform: translateY(50%);
 `;
 
-export const CoverSection: React.FC = () => {
+const CoverSection: React.FC = () => {
   return (
     <_Wrapper>
       <HeroImage />
@@ -42,3 +43,11 @@ export const CoverSection: React.FC = () => {
     </_Wrapper>
   );
 };
+
+const SuspenseCoverSection: React.FC = () => (
+  <Suspense fallback={null}>
+    <CoverSection />
+  </Suspense>
+);
+
+export { SuspenseCoverSection as CoverSection };
